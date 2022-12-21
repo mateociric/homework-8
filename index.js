@@ -11,30 +11,24 @@ function sumNum() {
 
     //check number of parameters in function
     if (arguments.length < 10) {
-
         return `Tvoj niz sadrži manje od 10 brojeva!`
+    }
 
-    } else {
+    for (let i = 0; i < arguments.length; i++) {
 
-        for (let i = 0; i < arguments.length; i++) {
-
-            //check the datatype of argument
-            if (typeof arguments[i] !== 'number') {
-
-                return `${arguments[i]} nije broj!`
-
-                //check if number is even
-            } else if (arguments[i] % 2 === 0) {
-
-                sum += arguments[i];
-
-            }
-
+        //check the datatype of argument
+        if (arguments[i] % 2 === 0) {
+            sum += arguments[i];
         }
 
-        return sum;
+        //check if number is even
+        if (typeof arguments[i] !== 'number') {
+            return `${arguments[i]} nije broj!`
+        }
 
     }
+
+    return sum;
 
 }
 
@@ -47,7 +41,7 @@ let myArr = [5, 0.1, 100, 10];
 // function accept one parameter, array
 function minMax(arr) {
 
-    //ccheck if the field contains more than one member
+    //check if the field contains more than one member
     if (arr.length > 1) {
 
         //find min and max by sort method, assign sorted array to variable
@@ -59,19 +53,15 @@ function minMax(arr) {
 
         //check datatype of sum
         if (typeof sum === 'number') {
-
             return sum < 10 ? `Zbroj je jednoznamenkast` : `${sum}`;
+        }
 
-        } else {
-
+        if (typeof sum !== 'number') {
             return `Najmanji ili najveći niz ne može se konvertirati u broj!`
-
         }
 
     } else {
-
         return `Niz sadrži manje od dva člana!`
-
     }
 
 }
@@ -83,15 +73,8 @@ minMax(myArr);
 let arr = process.argv.slice(2);
 
 let fruit = arr.filter(curr => {
-
-    if (curr === 'jabuka' || curr === 'naranča' || curr === 'banana') {
-        return curr;
-
-    }
-
+    return curr === 'jabuka' || curr === 'naranča' || curr === 'banana';
 });
-
-console.log(fruit)
 
 // 4. Napravi niz proizvoljnih podataka, pa iz tog niza izbaci sve članove koji nisu broj, te od tog dobijenog niza napravi novi niz koji je obrnutog redoslijeda
 
@@ -116,9 +99,7 @@ function getNum(arr) {
         return numArr.reverse();
 
     } else {
-
         return `Niz sadrži manje od dva člana!`
-
     }
 
 }
@@ -142,7 +123,5 @@ getNum(arr2);
 let str = '0123456789';
 
 for (let i = str.length; i > 0; i--) {
-
     console.log(str.slice(0, i));
-
 }
